@@ -12,6 +12,7 @@ data class Product(
     val quantity: Int,
     val photoUri: String? = null,
     val timestamp: Long = System.currentTimeMillis()
+
 )
 
 // Represents a sale of a product
@@ -29,8 +30,10 @@ data class Sale(
 data class Appointment(
     val id: Int,
     val customer: String,
+
     val alarmTime: Long,
     val timestamp: Long = System.currentTimeMillis()
+
 )
 
 // Simple customer model used for recommendations
@@ -40,4 +43,5 @@ data class Customer(
     val name: String,
     val totalSpent: Double,
     val timestamp: Long = System.currentTimeMillis()
+
 )

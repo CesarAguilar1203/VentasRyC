@@ -114,7 +114,7 @@ fun SalesScreen(products: List<Product>, sales: MutableList<Sale>, modifier: Mod
                                     .padding(vertical = 4.dp),
                                 horizontalArrangement = Arrangement.SpaceBetween
                             ) {
-                                Text(product?.name ?: "ID ${'$'}{sale.productId}", modifier = Modifier.weight(1f))
+                                Text(product?.name ?: "ID ${sale.productId}", modifier = Modifier.weight(1f))
                                 Text(sale.quantity.toString(), modifier = Modifier.weight(0.5f))
                                 Text(date, modifier = Modifier.weight(1f))
                             }
@@ -127,7 +127,7 @@ fun SalesScreen(products: List<Product>, sales: MutableList<Sale>, modifier: Mod
     }
 }
 
-// Inventory of products. Photo is represented by a URL string for simplicity.
+// Inventory of products
 @Composable
 fun InventoryScreen(products: MutableList<Product>, modifier: Modifier = Modifier) {
     var name by remember { mutableStateOf(TextFieldValue()) }
@@ -215,7 +215,7 @@ fun InventoryScreen(products: MutableList<Product>, modifier: Modifier = Modifie
     }
 }
 
-// Agenda of appointments with alarmTime placeholder.
+// Agenda of appointments
 @Composable
 fun AgendaScreen(appointments: MutableList<Appointment>, modifier: Modifier = Modifier) {
     var customer by remember { mutableStateOf(TextFieldValue()) }
@@ -412,3 +412,4 @@ fun ReportScreen(sales: List<Sale>, modifier: Modifier = Modifier) {
         }
     }
 }
+

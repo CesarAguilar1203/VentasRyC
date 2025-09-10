@@ -4,13 +4,30 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
-import androidx.compose.ui.Modifier
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
-import com.example.ventasryc.data.*
-import com.example.ventasryc.ui.*
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Tab
+import androidx.compose.material3.TabRow
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import com.example.ventasryc.data.Appointment
+import com.example.ventasryc.data.Customer
+import com.example.ventasryc.data.Product
+import com.example.ventasryc.data.Sale
+import com.example.ventasryc.ui.AgendaScreen
+import com.example.ventasryc.ui.InventoryScreen
+import com.example.ventasryc.ui.RecommendationScreen
+import com.example.ventasryc.ui.ReportScreen
+import com.example.ventasryc.ui.SalesScreen
 import com.example.ventasryc.ui.theme.VentasRyCTheme
 
 class MainActivity : ComponentActivity() {
@@ -25,6 +42,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SalesApp() {
     val products = remember { mutableStateListOf<Product>() }
@@ -35,9 +53,9 @@ fun SalesApp() {
     val tabs = listOf("Ventas", "Inventario", "Agenda", "Clientes", "Reporte")
 
     Scaffold(
+        containerColor = MaterialTheme.colorScheme.background,
         topBar = {
             Column {
-                @OptIn(ExperimentalMaterial3Api::class)
                 CenterAlignedTopAppBar(title = { Text("VentasRyC") })
                 TabRow(selectedTabIndex = selectedTab) {
                     tabs.forEachIndexed { index, title ->

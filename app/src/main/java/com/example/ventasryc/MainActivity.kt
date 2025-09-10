@@ -37,6 +37,7 @@ fun SalesApp() {
     Scaffold(
         topBar = {
             Column {
+                @OptIn(ExperimentalMaterial3Api::class)
                 CenterAlignedTopAppBar(title = { Text("VentasRyC") })
                 TabRow(selectedTabIndex = selectedTab) {
                     tabs.forEachIndexed { index, title ->

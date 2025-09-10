@@ -3,7 +3,6 @@ package com.example.ventasryc.data
 // Data model for a product in inventory
 // photoUri stores the path to the product image
 // cost represents investment per item, price is sale price
-
 data class Product(
     val id: Int,
     val name: String,
@@ -16,16 +15,14 @@ data class Product(
 
 // Represents a sale of a product
 // timestamp allows real time calculation
-
 data class Sale(
-    val productName: String,
+    val productId: Int,
     val quantity: Int,
     val timestamp: Long = System.currentTimeMillis()
 )
 
 // Represents an appointment with a customer
 // alarmTime in millis can be used with AlarmManager
-
 data class Appointment(
     val id: Int,
     val customer: String,
@@ -34,7 +31,6 @@ data class Appointment(
 )
 
 // Simple customer model used for recommendations
-
 data class Customer(
     val id: Int,
     val name: String,
